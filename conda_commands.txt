@@ -1,0 +1,177 @@
+# CHEAT SHEETS
+https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf
+https://opensource.com/sites/default/files/gated-content/cheat_sheet_pip.pdf
+http://dcjtech.info/wp-content/uploads/2015/10/Pip-Cheatsheet.pdf
+
+
+# OTHER GUIDANCE
+https://labs.quansight.org/blog/2021/01/python-packaging-brainstorm/
+https://stackoverflow.com/questions/62585395/not-able-to-install-jaxlib
+
+
+
+# CREATE ENVIRONMENT
+conda create --name <conda_env_name> python=3.8
+
+
+# INSTALL FROM PIP
+https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html#installing-non-conda-packages
+
+
+# REMOVE ENVIRONMENT
+conda deactivate
+conda env remove --name <conda_env_name>
+
+
+# REMOVE PACKAGES FROM ENVIRONMENT
+conda remove --name <conda_env_name> <package_name1> <package_name2>
+
+
+# AVAILABLE ENVIRONMENTS
+conda info --envs
+
+
+# ACTIVATE ENVIRONMENT
+conda activate <conda_env_name>
+
+
+# ADD PACKAGES TO AN ENVIRONMENT FROM CHANNEL
+conda install --name <conda_env_name> --channel <channel_name> <package_name1> <package_name2>
+
+
+# ADD PACKAGES TO AN ACTIVE ENVIRONMENT VIA PIP INSTALL
+pip install <package_name1> <package_name2>
+
+
+# LIST PACKAGES IN AN ENVIRONMENT
+conda list --name <conda_env_name>
+
+
+# UPDATE A PACKAGE
+conda update <package_name>  CURRENT - yfinance 0.1.55
+
+
+# DE-ACTIVATE ENVIRONMENT
+conda deactivate
+
+
+# SAVE ENVIRONMENT DETAILS TO TEXT FILE
+conda list --explicit > <conda_env_name>.txt
+
+
+===========================================================================================================================
+
+conda remove --name MC_TEST numpy numpy-base
+conda install --name MC_TEST -c conda-forge numpy pandas jax
+pip install jax numba
+Set-ExecutionPolicy AllSigned
+cd C:\Progra~1
+git clone https://github.com/google/jax.git
+[System.Environment]::SetEnvironmentVariable("PATH", $Env:Path + ";C:\Users\brent\anaconda3\envs\MC_TEST", "Machine")
+python ./build/build.py
+
+
+===========================================================================================================================
+
+(MC_TEST) PS C:\Users\brent\jax> python ./build/build.py
+
+     _   _  __  __
+    | | / \ \ \/ /
+ _  | |/ _ \ \  /
+| |_| / ___ \/  \
+ \___/_/   \/_/\_\
+
+
+Downloading bazel from: https://github.com/bazelbuild/bazel/releases/download/4.1.0/bazel-4.1.0-windows-x86_64.exe
+bazel-4.1.0-windows-x86_64.exe [########################################] 100%
+Bazel binary path: .\bazel-4.1.0-windows-x86_64.exe
+Bazel version: 4.1.0
+Python binary path: C:/Users/brent/anaconda3/envs/MC_TEST/python.exe
+Python version: 3.8
+NumPy version: 1.19.2
+MKL-DNN enabled: yes
+Target CPU: AMD64
+Target CPU features: release
+CUDA enabled: no
+TPU enabled: no
+ROCm enabled: no
+
+Building XLA and installing it in the jaxlib source tree...
+.\bazel-4.1.0-windows-x86_64.exe run --verbose_failures=true --config=mkl_open_source_only :build_wheel -- --output_path=C:\Users\brent\jax\dist --cpu=AMD64
+Starting local Bazel server and connecting to it...
+INFO: Options provided by the client:
+  Inherited 'common' options: --isatty=1 --terminal_columns=80
+INFO: Reading rc options for 'run' from c:\users\brent\jax\.bazelrc:
+  Inherited 'common' options: --experimental_repo_remote_exec
+INFO: Options provided by the client:
+  Inherited 'build' options: --python_path=C:/Users/brent/anaconda3/envs/MC_TEST/python.exe
+INFO: Reading rc options for 'run' from c:\users\brent\jax\.bazelrc:
+  Inherited 'build' options: --apple_platform_type=macos --macos_minimum_os=10.9 --announce_rc --define open_source_build=true --spawn_strategy=standalone --enable_platform_specific_config --define=no_aws_support=true --define=no_gcp_support=true --define=no_hdfs_support=true --define=no_kafka_support=true --define=no_ignite_support=true --define=grpc_no_ares=true -c opt --config=short_logs
+INFO: Reading rc options for 'run' from c:\users\brent\jax\.jax_configure.bazelrc:
+  Inherited 'build' options: --strategy=Genrule=standalone --repo_env PYTHON_BIN_PATH=C:/Users/brent/anaconda3/envs/MC_TEST/python.exe --action_env=PYENV_ROOT --python_path=C:/Users/brent/anaconda3/envs/MC_TEST/python.exe --distinct_host_configuration=false
+INFO: Found applicable config definition build:short_logs in file c:\users\brent\jax\.bazelrc: --output_filter=DONT_MATCH_ANYTHING
+INFO: Found applicable config definition build:mkl_open_source_only in file c:\users\brent\jax\.bazelrc: --define=tensorflow_mkldnn_contraction_kernel=1
+INFO: Found applicable config definition build:windows in file c:\users\brent\jax\.bazelrc: --copt=/D_USE_MATH_DEFINES --host_copt=/D_USE_MATH_DEFINES --copt=-DWIN32_LEAN_AND_MEAN --host_copt=-DWIN32_LEAN_AND_MEAN --copt=-DNOGDI --host_copt=-DNOGDI --copt=/Zc:preprocessor --cxxopt=/std:c++14 --host_cxxopt=/std:c++14 --linkopt=/DEBUG --host_linkopt=/DEBUG --linkopt=/OPT:REF --host_linkopt=/OPT:REF --linkopt=/OPT:ICF --host_linkopt=/OPT:ICF --experimental_strict_action_env=true
+WARNING: Download from http://mirror.tensorflow.org/github.com/tensorflow/runtime/archive/ad09d3736c5120de1e7dba6edd0ff5eeae6b8102.tar.gz failed: class com.google.devtools.build.lib.bazel.repository.downloader.UnrecoverableHttpException GET returned 404 Not Found
+WARNING: Download from https://storage.googleapis.com/mirror.tensorflow.org/github.com/llvm/llvm-project/archive/6da63573e48397decfb772884a36f176d6c81209.tar.gz failed: class com.google.devtools.build.lib.bazel.repository.downloader.UnrecoverableHttpException GET returned 404 Not Found
+INFO: Repository local_execution_config_python instantiated at:
+  C:/users/brent/jax/WORKSPACE:31:14: in <toplevel>
+  C:/users/brent/_bazel_brent/mcl4qh6d/external/org_tensorflow/tensorflow/workspace2.bzl:1080:19: in workspace
+  C:/users/brent/_bazel_brent/mcl4qh6d/external/org_tensorflow/tensorflow/workspace2.bzl:90:27: in _tf_toolchains
+  C:/users/brent/_bazel_brent/mcl4qh6d/external/tf_toolchains/toolchains/remote_config/configs.bzl:6:28: in initialize_rbe_configs
+  C:/users/brent/_bazel_brent/mcl4qh6d/external/tf_toolchains/toolchains/remote_config/rbe_config.bzl:158:27: in _tensorflow_local_config
+Repository rule local_python_configure defined at:
+  C:/users/brent/_bazel_brent/mcl4qh6d/external/org_tensorflow/third_party/py/python_configure.bzl:275:41: in <toplevel>
+ERROR: An error occurred during the fetch of repository 'local_execution_config_python':
+   Traceback (most recent call last):
+        File "C:/users/brent/_bazel_brent/mcl4qh6d/external/org_tensorflow/third_party/py/python_configure.bzl", line 209, column 22, in _create_local_python_repository
+                _check_python_bin(repository_ctx, python_bin)
+        File "C:/users/brent/_bazel_brent/mcl4qh6d/external/org_tensorflow/third_party/py/python_configure.bzl", line 145, column 25, in _check_python_bin
+                auto_config_fail("--define %s='%s' is not executable. Is it the python binary?" % (
+        File "C:/users/brent/_bazel_brent/mcl4qh6d/external/org_tensorflow/third_party/remote_config/common.bzl", line 12, column 9, in auto_config_fail
+                fail("%sConfiguration Error:%s %s\n" % (red, no_color, msg))
+Error in fail: Configuration Error: --define PYTHON_BIN_PATH='C:/Users/brent/anaconda3/envs/MC_TEST/python.exe' is not executable. Is it the python binary?
+ERROR: Error fetching repository: Traceback (most recent call last):
+        File "C:/users/brent/_bazel_brent/mcl4qh6d/external/org_tensorflow/third_party/py/python_configure.bzl", line 209, column 22, in _create_local_python_repository
+                _check_python_bin(repository_ctx, python_bin)
+        File "C:/users/brent/_bazel_brent/mcl4qh6d/external/org_tensorflow/third_party/py/python_configure.bzl", line 145, column 25, in _check_python_bin
+                auto_config_fail("--define %s='%s' is not executable. Is it the python binary?" % (
+        File "C:/users/brent/_bazel_brent/mcl4qh6d/external/org_tensorflow/third_party/remote_config/common.bzl", line 12, column 9, in auto_config_fail
+                fail("%sConfiguration Error:%s %s\n" % (red, no_color, msg))
+Error in fail: Configuration Error: --define PYTHON_BIN_PATH='C:/Users/brent/anaconda3/envs/MC_TEST/python.exe' is not executable. Is it the python binary?
+INFO: Repository rules_java instantiated at:
+  C:/users/brent/jax/WORKSPACE:37:14: in <toplevel>
+  C:/users/brent/_bazel_brent/mcl4qh6d/external/org_tensorflow/tensorflow/workspace0.bzl:120:20: in workspace
+  C:/users/brent/_bazel_brent/mcl4qh6d/external/com_github_grpc_grpc/bazel/grpc_extra_deps.bzl:29:18: in grpc_extra_deps
+  C:/users/brent/_bazel_brent/mcl4qh6d/external/com_google_protobuf/protobuf_deps.bzl:34:21: in protobuf_deps
+Repository rule http_archive defined at:
+  C:/users/brent/_bazel_brent/mcl4qh6d/external/bazel_tools/tools/build_defs/repo/http.bzl:336:31: in <toplevel>
+INFO: Repository go_sdk instantiated at:
+  C:/users/brent/jax/WORKSPACE:37:14: in <toplevel>
+  C:/users/brent/_bazel_brent/mcl4qh6d/external/org_tensorflow/tensorflow/workspace0.bzl:120:20: in workspace
+  C:/users/brent/_bazel_brent/mcl4qh6d/external/com_github_grpc_grpc/bazel/grpc_extra_deps.bzl:36:27: in grpc_extra_deps
+  C:/users/brent/_bazel_brent/mcl4qh6d/external/io_bazel_rules_go/go/toolchain/toolchains.bzl:379:28: in go_register_toolchains
+  C:/users/brent/_bazel_brent/mcl4qh6d/external/io_bazel_rules_go/go/private/sdk.bzl:65:21: in go_download_sdk
+Repository rule _go_download_sdk defined at:
+  C:/users/brent/_bazel_brent/mcl4qh6d/external/io_bazel_rules_go/go/private/sdk.bzl:53:35: in <toplevel>
+ERROR: Analysis of target '//build:build_wheel' failed; build aborted: Configuration Error: --define PYTHON_BIN_PATH='C:/Users/brent/anaconda3/envs/MC_TEST/python.exe' is not executable. Is it the python binary?
+INFO: Elapsed time: 1107.425s
+INFO: 0 processes.
+FAILED: Build did NOT complete successfully (10 packages loaded, 12 targets co\
+FAILED: Build did NOT complete successfully (10 packages loaded, 12 targets co\
+nfigured)
+    currently loading: @bazel_tools//tools/jdk
+    Fetching @local_config_python; Restarting.
+    Fetching ...docker; Cloning 9bfcd7dbf0294ed9d11a99da6363fc28df904502 of ht\
+tps://github.com/bazelbuild/rules_docker.git
+b''
+Traceback (most recent call last):
+  File "./build/build.py", line 524, in <module>
+  File "./build/build.py", line 519, in main
+  File "./build/build.py", line 53, in shell
+  File "C:\Users\brent\anaconda3\envs\MC_TEST\lib\subprocess.py", line 411, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+  File "C:\Users\brent\anaconda3\envs\MC_TEST\lib\subprocess.py", line 512, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['.\\bazel-4.1.0-windows-x86_64.exe', 'run', '--verbose_failures=true', '--config=mkl_open_source_only', ':build_wheel', '--', '--output_path=C:\\Users\\brent\\jax\\dist', '--cpu=AMD64']' returned non-zero exit status 1.
+

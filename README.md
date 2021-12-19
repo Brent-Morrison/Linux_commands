@@ -18,7 +18,6 @@ I'll put the frequent ones here in the README.  Others can go into dedicated fil
 | Delete file      | ```rm <file_name>``` |  
   
 [^1]: This assigns rights as follows:  
-  
 | Rights | Owner | Group | Others |  
 | :---- | :---: | :---: | :----: |  
 | Read | 4 | 4 | 4 |  
