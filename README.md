@@ -8,7 +8,7 @@ I'll put the frequent ones here in the README.  Others can go into dedicated fil
 <br>
 
 | Action | Command | Note |  
-| :----- |:------- |  |  
+| :----- |:------- |:---:|  
 | Create file      | ```touch <file_name>``` |  |  
 | View file | ```cat <file_name>``` |  |  
 | Open file | ```nano <file_name>``` |  |  
@@ -29,4 +29,5 @@ Note 1: This assigns rights as follows:
 | Write (w) | 2 | 2 | 0 |  
 | Execute (x) | 1 | 1 | 0 |  
 | TOTAL | **7** | **7** | **4** |  
+
 which is equivalent to ```rwxrwxr--```
