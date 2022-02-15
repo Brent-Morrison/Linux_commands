@@ -17,8 +17,8 @@ I'll put the frequent ones here in the README.  Others can go into dedicated fil
 | Set permission | ```sudo chmod 774 <file_name>``` | 1 |  
 | Find location of file | ```sudo find / -name <file_name>``` |  |  
 | Delete file      | ```rm <file_name>``` |  |  
-| Processes running      | ```ps aux | grep <process>``` |  |  
-| Folder & content size      | ```du -hsc * | sort -hr``` |  |  
+| Processes running      | ```ps aux \| grep <process>``` |  |  
+| Folder & content size      | ```du -hsc * \| sort -hr``` |  |  
 
 ---
 
